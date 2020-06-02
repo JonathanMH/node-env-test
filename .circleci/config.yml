@@ -18,14 +18,12 @@ jobs:
             npm run test
 
       - setup_remote_docker
+
       - run:
           name: Build Docker image
           command: |
             TAG="latest"
-            # docker build -t $AWS_ECR_REPO:$TAG .
-            docker build -t node-env-test:latest .
+            docker build -t $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO:latest .
+      - aws-ecr/ecr-login
       - aws-ecr/push-image:
-          # account-url: AWS_ECR_ACCOUNT_URL
-          # repo: $AWS_ECR_REPO
-          repo: node-env-test
-          tag: latest
+          repo: $AWS_ECR_REPO
