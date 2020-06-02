@@ -24,6 +24,6 @@ jobs:
             TAG="latest"
             docker build -t $AWS_ECR_REPO:$TAG .
       - aws-ecr/push-image:
-          account-url: $AWS_ECR_ACCOUNT_URL
+          account-url: AWS_ECR_ACCOUNT_URL
           repo: $AWS_ECR_REPO
           tag: latest
