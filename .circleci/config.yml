@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # using custom image, see .circleci/images/primary/Dockerfile
-      - image: circleci/node:12.13-alpine
+      - image: circleci/node:12.13.0
 
     steps:
       - checkout
