@@ -25,7 +25,7 @@ jobs:
             # docker build -t $AWS_ECR_REPO:$TAG .
             docker build -t node-env-test:latest .
       - aws-ecr/push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
+          # account-url: AWS_ECR_ACCOUNT_URL
           # repo: $AWS_ECR_REPO
           repo: node-env-test
           tag: latest
