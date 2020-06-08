@@ -39,4 +39,4 @@ jobs:
       - run:
           name: ssh into vm
           command: |
-            ssh -o StrictHostKeyChecking=no -o SendEnv="AWS_ECR_ACCOUNT_URL" -o SendEnv="AWS_ECR_REPO" -o SendEnv="AWS_ACCESS_KEY_ID" -o SendEnv="AWS_SECRET_ACCESS_KEY" root@$DEPLOY_HOST 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $AWS_ECR_ACCOUNT_URL && docker stop $AWS_ECR_REPO; docker rm $AWS_ECR_REPO; docker pull $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO && docker run --name=$AWS_ECR_REPO --restart=alawys $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO:latest'
+            ssh -o StrictHostKeyChecking=no -o SendEnv="AWS_ECR_ACCOUNT_URL" -o SendEnv="AWS_ECR_REPO" -o SendEnv="AWS_ACCESS_KEY_ID" -o SendEnv="AWS_SECRET_ACCESS_KEY" root@$DEPLOY_HOST 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $AWS_ECR_ACCOUNT_URL && docker stop $AWS_ECR_REPO; docker rm $AWS_ECR_REPO; docker pull $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO && docker run --name=$AWS_ECR_REPO --restart=always $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO:latest'
