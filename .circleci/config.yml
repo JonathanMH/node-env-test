@@ -39,12 +39,8 @@ jobs:
       - run:
           name: ssh into vm
           command: |
-            ssh root@$DEPLOY_HOST <<'ENDSSH'
-            touch test.log
-            echo "test" > test.log
-            exit
-            ENDSSH
-                  # docker pull myuser/myapp
+            ssh -o StrictHostKeyChecking=no root@$DEPLOY_HOST '
+            touch test.log && echo "test">test.log'
       # docker stop my-app
       # docker rm my-app
       # docker run --name=my-app --restart=always -v $PWD:/app -d myuser/myapp
