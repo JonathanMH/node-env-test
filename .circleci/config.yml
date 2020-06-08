@@ -29,3 +29,19 @@ jobs:
       - aws-ecr/ecr-login
       - aws-ecr/push-image:
           repo: $AWS_ECR_REPO
+      - add_ssh_keys
+
+      - run:
+          name: add vps to trusted hosts
+          command: |
+            ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
+
+      - run: |
+          ssh root@$DEPLOY_HOST <<'ENDSSH'
+            touch test.log
+            echo "test" > test.log
+      # docker pull myuser/myapp
+      # docker stop my-app
+      # docker rm my-app
+      # docker run --name=my-app --restart=always -v $PWD:/app -d myuser/myapp
+          ENDSSH
