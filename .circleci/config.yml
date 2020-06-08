@@ -40,10 +40,10 @@ jobs:
           name: ssh into vm
           command: |
             ssh root@$DEPLOY_HOST <<'ENDSSH'
-              touch test.log
-              echo "test" > test.log
+            touch test.log
+            echo "test" > test.log
+            ENDSSH
       # docker pull myuser/myapp
       # docker stop my-app
       # docker rm my-app
       # docker run --name=my-app --restart=always -v $PWD:/app -d myuser/myapp
-          ENDSSH
