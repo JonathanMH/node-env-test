@@ -39,8 +39,4 @@ jobs:
       - run:
           name: ssh into vm
           command: |
-            ssh -o StrictHostKeyChecking=no root@$DEPLOY_HOST '
-            docker stop $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO
-            && docker rm $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO
-            && docker pull $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO
-            && docker run --restart=alawys $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO'
+            ssh -o StrictHostKeyChecking=no root@$DEPLOY_HOST ' docker stop $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO && docker rm $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO && docker pull $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO && docker run --restart=alawys $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO'
