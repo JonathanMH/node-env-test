@@ -37,9 +37,9 @@ jobs:
             ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
 
       - run: |
-          ssh root@$DEPLOY_HOST <<'ENDSSH'
-            touch test.log
-            echo "test" > test.log
+        ssh root@$DEPLOY_HOST <<'ENDSSH'
+          touch test.log
+          echo "test" > test.log
       # docker pull myuser/myapp
       # docker stop my-app
       # docker rm my-app
