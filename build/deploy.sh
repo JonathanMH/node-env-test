@@ -1,6 +1,8 @@
 #!/bin/bash
 
 rc='' # remote command
+rc='echo one $ANIMAL' # remote command
+rc="echo two $ANIMAL" # remote command
 # get login token OR
 rc+='aws ecr get-login-password --region eu-central-1 | '
 # get login to docker registry AND
