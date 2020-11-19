@@ -18,4 +18,4 @@ ssh -o StrictHostKeyChecking=no \
 -o SendEnv="AWS_ECR_REPO" \
 -o SendEnv="AWS_ACCESS_KEY_ID" \
 -o SendEnv="AWS_SECRET_ACCESS_KEY" \
-root@$DEPLOY_HOST '     '
+root@$DEPLOY_HOST "$rc"
